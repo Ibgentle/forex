@@ -1,0 +1,17 @@
+{% extends "journal/base.html" %}
+
+{% block title %}{{ trade.currency_pair }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ trade.currency_pair }}</h1>
+
+<p class="date">
+
+Trade executed on {{ trade.date }} at {{ trade.entry_time }}
+
+</p>
+
+{{ trade.analysis|linebreaks }}
+
+{% endblock %}

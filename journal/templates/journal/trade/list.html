@@ -1,0 +1,37 @@
+{% extends "journal/base.html" %}
+
+{% block title %}My Journal{% endblock %}
+
+{% block content %}
+
+	<h1 style="font-color:cyan">My Trading Journal</h1>
+	<br>
+
+	<table border="2" cellpadding="4" cellspacing="2" width="150%">
+		<tr>
+			<th>Currency</th>
+			<th style="width:10%">Trade Type</th>
+			<th>Result</th>
+			<th style="width:10%">Date</th>
+			<th style="width:10%">Entry Time</th>
+			<th>Broker</th>
+			<th>Trade Analysis</th>
+		</tr>
+
+		{% for trade in trades %}
+		
+		<tr>
+			<td><a href="{% url 'journal:trade_detail' trade.id %}">
+				{{ trade.currency_pair }}</a></td>
+			<td>{{ trade.type_of_trade }}</td>
+			<td>{{ trade.result }}</td>
+			<td>{{ trade.date }}</td>
+			<td>{{ trade.entry_time }}</td>
+			<td>{{ trade.broker }}</td>
+			<td>{{ trade.analysis|truncatewords:30|linebreaks }}</td>
+		</tr>
+		
+		{% endfor %}
+	</table>
+
+{% endblock %}

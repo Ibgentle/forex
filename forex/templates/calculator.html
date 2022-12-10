@@ -1,0 +1,47 @@
+<!DOCTYPE html>i
+<html lang='en-US'>
+	<head>
+		<title>Profitability Calculator</title>
+		<style type="text/css">
+			p.value{
+				color:red;
+			}
+		</style>
+		<script type="text/javascript">
+			function calculator(){
+				result = window.open('', 'Result', 'tootlbar=no,status=no,width=300,height=200');
+				let capital = parseInt(document.form1.capital.value);
+                        	let days = parseInt(document.form1.days.value);
+                        	let trades = parseInt(document.form1.trades.value);
+                        	let percentage = parseInt(document.form1.percentage.value);
+                        	let totalROI = 0;
+                        	let initialCapital = capital;
+                        	let dayCounter = 1;
+                        	while (dayCounter <= days){
+                                	let tradeCounter = 1;
+                                	while (tradeCounter <= trades){
+                                        	let investment = (percentage / 100) * capital;
+                                        	let ROI = 0.8 * investment;
+                                        	totalROI += ROI;
+                                        	capital += ROI;
+                                        	tradeCounter++;
+                                	}
+                                	dayCounter++;
+                        	}
+				result.document.writeln("Starting Capital: ",initialCapital,"<br>","Number of days traded: ",days, "<br>","Percentage per trade: ",percentage,"<br>",
+						"Number of trades per day: ",trades,"<br>","Total profit: ",totalROI,"<br>","Current balance: ",capital);
+			}
+		</script>
+
+	</head>
+	<body>
+		<h1 style="text-align:center">Welcome! Find out how much you could make from trading the Binary Options market...</h1>
+		<form name='form1' action=" " method="GET">
+			{% csrf_token %}
+			<ul>{{ form.as_ul }}</ul>
+			<input type="button" value="Calculate" onclick="calculator();"/>
+		</form>
+	
+
+	</body>
+</html>
