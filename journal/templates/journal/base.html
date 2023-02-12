@@ -5,9 +5,26 @@
 	<head>
 		<title>{% block title %}{% endblock %}</title>
 		<link href="{% static "css/journal.css" %}" rel="stylesheet">
+		<link href="{% static "css/more-styles.css" %}" rel="stylesheet">
 	</head>
 	<body>
-		<div id="content"
+		<div id="nav">
+			<ul>
+				<li><a href="#">Mission</a></li>
+				<li><a href="#">History</a></li>
+				<li><a href="#">Executive Team</a>
+					<ul>
+					<li><a href="#">&raquo; CEO</a>
+					<li><a href="#">&raquo; CFO</a>
+					<li><a href="#">&raquo; COO</a>
+					<li><a href="#">&raquo; Other Minions</a>
+					</ul>
+				</li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</div>
+
+		<div id="content">
 		     {% block content %}
 		     {% endblock %}
 		</div>

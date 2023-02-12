@@ -4,12 +4,12 @@ from django.db import models
 
 class Trade(models.Model):
     class TradeResult(models.TextChoices):
-        WIN = 'W', 'Win'
-        LOSS = 'L', 'Loss'
+        WIN = 'Win', 'W'
+        LOSS = 'Loss', 'L'
 
     class TradeType(models.TextChoices):
-        UP = 'U', 'Up'
-        DOWN = 'D', 'Down'
+        UP = 'Up', 'U'
+        DOWN = 'Down', 'D'
 
     class Meta:
         ordering = ['-date']

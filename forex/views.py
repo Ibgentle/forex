@@ -7,7 +7,7 @@ from .forms import ProfitabilityForm
 
 @csrf_exempt
 def calculator(request):
-    if request.method == 'GET':
+    if request.method == 'POST':
         form = ProfitabilityForm(request.GET)
         if form.is_valid():
             form.save()

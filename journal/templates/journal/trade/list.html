@@ -3,17 +3,15 @@
 {% block title %}My Journal{% endblock %}
 
 {% block content %}
-
-	<h1 style="font-color:cyan">My Trading Journal</h1>
-	<br>
+	<h1 style="font-weight:bold; font-family:Grabiola">My Trading Journal</h1>
 
 	<table border="2" cellpadding="4" cellspacing="2" width="150%">
 		<tr>
 			<th>Currency</th>
-			<th style="width:10%">Trade Type</th>
+			<th style="width:15%">Trade Type</th>
 			<th>Result</th>
-			<th style="width:10%">Date</th>
-			<th style="width:10%">Entry Time</th>
+			<th style="width:15%">Date</th>
+			<th style="width:15%">Entry Time</th>
 			<th>Broker</th>
 			<th>Trade Analysis</th>
 		</tr>
@@ -28,10 +26,10 @@
 			<td>{{ trade.date }}</td>
 			<td>{{ trade.entry_time }}</td>
 			<td>{{ trade.broker }}</td>
-			<td>{{ trade.analysis|truncatewords:30|linebreaks }}</td>
+			<td>{{ trade.analysis|truncatewords:5|linebreaks }}</td>
 		</tr>
-		
 		{% endfor %}
 	</table>
+	<p style="font-weight:bold">Click on any currency to get details of the analyis on each trade.</p>
 
 {% endblock %}
